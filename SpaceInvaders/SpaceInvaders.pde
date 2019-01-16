@@ -1,4 +1,5 @@
 import ddf.minim.*;
+import processing.serial.*;
 
 //Define all constants used throughout the program
 
@@ -99,6 +100,10 @@ ShieldPiece     shieldPiece2Array[][];
 ShieldPiece     shieldPiece3Array[][];
 ShieldPiece     shieldPiece4Array[][];
 
+
+// Reads from serial port and converts to key presses
+Serial serialPort;
+SerialJoystick serialJoystick;
 
 void setup(){
   
@@ -222,10 +227,43 @@ void setup(){
   topHighScores      = new int[highScoresStrings.length];
   for(int i=0;i<highScoresStrings.length;i++){
     topHighScores[i]  = int(highScoresStrings[i]);}
+    
+    
+  // Set up serial
+  // List all the available serial ports:
+  println("Available serial ports:");
+  String[] ports = Serial.list();
+  printArray(ports);
+  
+  int serialPortIndex = -1;  // Set this to the port you want, or -1 for autodetect
+  
+  if (serialPortIndex == -1) {
+    // Autodetect
+    println("Autodetecting serial port");
+    for (int i = 0; i < ports.length; i++) {
+      if (match(ports[i], "usbmodem") != null) {
+        serialPortIndex = i;
+        break;
+      }
+    }
+  
+    if (serialPortIndex != -1) {
+      println("Using detected port - ", ports[serialPortIndex]);
+    } else {
+      println("Couldn't detect port, using first port");
+      serialPortIndex = 0;
+    }
+  }
+  
+  println("Opening serial port ", ports[serialPortIndex]);
+  serialPort = new Serial(this, Serial.list()[serialPortIndex], 9600);
+  serialJoystick = new SerialJoystick();
+  serialJoystick.init(serialPort);
 }
 
-
 void draw(){
+  // Process serial joystick
+  serialJoystick.draw();
   
   // MENU SCREEN
   
