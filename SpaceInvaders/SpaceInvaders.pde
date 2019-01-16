@@ -18,8 +18,8 @@ final static int SHIELD_PIECE_WIDTH    = 4;
 final static int SHIELD_PIECE_HEIGHT   = 8;
 final static int POWER_UP_HEIGHT       = 30;
 final static int POWER_UP_WIDTH        = 30;
-final static int SCREENX               = 500;
-final static int SCREENY               = 600;
+static int SCREENX               = -1; // Dummy value, manually set it in setup()
+static int SCREENY               = -1;
 final static int SCREEN_BORDER         = 3;
 final static int EXPLOSION_TIME        = 8;
 final static int AMOUNT_OF_INVADERS    = 10;
@@ -101,7 +101,13 @@ ShieldPiece     shieldPiece4Array[][];
 
 
 void setup(){
-  size(SCREENX,SCREENY);
+  
+  SCREENX = 500;
+  SCREENY = 600;
+  // Apparently the arguments to size() can't be variables (wha??) so
+  // make sure these values match those set above
+  size(500, 600);
+  
   ellipseMode(RADIUS);
   frameRate(FRAMES_PER_SECOND);
   background(0);
