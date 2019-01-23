@@ -56,48 +56,40 @@ class SerialJoystick {
 
     switch (c) {
       case'B':
-        pressShoot();
+        this.holdKey(KeyEvent.VK_SPACE);
+        break;
+      case 'b':
+        this.releaseKey(KeyEvent.VK_SPACE);
         break;
       case 'L':
-        pressLeft();
+        this.holdKey(KeyEvent.VK_LEFT);
+        break;
+      case 'l':
+        this.releaseKey(KeyEvent.VK_LEFT);
         break;
       case 'R':
-        pressRight();
+        this.holdKey(KeyEvent.VK_RIGHT);
+        break;
+      case 'r':
+        this.releaseKey(KeyEvent.VK_RIGHT);
         break;
       default:
         println("SerialJoystick - unknown char '", c, "'");
         break;
     }
     
-  }
-  
-  void pressLeft() { 
-    println("L");
-    this.holdKey(KeyEvent.VK_LEFT);
-   }
-  
-  void pressRight() {
-    println("R");
-    this.holdKey(KeyEvent.VK_RIGHT);
-  }
-  
-  void pressShoot() {
-    println("B");
-    this.holdKey(KeyEvent.VK_SPACE);
+    println(c);
+    
   }
   
   void holdKey(int aKey)
   {
     robot.keyPress(aKey);
-    heldKeys.add(new Integer(aKey));
   }
   
-  void releaseHeldKeys()
+  void releaseKey(int aKey)
   {
-    while (heldKeys.size() > 0) {
-      Integer aKey = heldKeys.remove();
-      robot.keyRelease(aKey.intValue());
-    }
+    robot.keyRelease(aKey);
   }
   
   void test() {
@@ -110,14 +102,20 @@ class SerialJoystick {
     // Demo
     println("Sending B");
     handleSerialChar('B');
+    delay(50);
+    handleSerialChar('b');
     println("");
     
     println("Sending L");
     handleSerialChar('L');
+    delay(50);
+    handleSerialChar('l');
     println("");
     
     println("Sending R");
     handleSerialChar('R');
+    delay(50);
+    handleSerialChar('r');
     println("");
    
   }
