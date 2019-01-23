@@ -43,7 +43,7 @@ class SerialJoystick {
   // Should be called each draw loop
   // Processes serial to simulated keyboard
   void draw() {
-    this.releaseHeldKeys();
+   // this.releaseHeldKeys();
     
     if (serialPort.available() > 0) {
       char inByte = serialPort.readChar();

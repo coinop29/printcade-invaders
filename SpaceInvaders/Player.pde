@@ -11,18 +11,18 @@ class Player {
   void move() {
       if(movingLeft1 == true && xpos>=PLAYER_WIDTH/2+SCREEN_BORDER){
         if(currentPowerUp == 1){ 
-          xpos-= 6;
+          xpos-= 20;
         }
         else{
-          xpos-=3;
+          xpos-= 20;
         }
       }
       if(movingRight1 == true && xpos<= SCREENX-PLAYER_WIDTH/2-SCREEN_BORDER){
         if(currentPowerUp == 1){
-          xpos+= 6;
+          xpos+= 20;
         }
         else{
-          xpos+=3;
+          xpos+= 20;
         }
       }
   }
