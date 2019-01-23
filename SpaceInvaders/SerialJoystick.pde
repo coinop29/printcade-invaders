@@ -54,15 +54,21 @@ class SerialJoystick {
   // Call this with the char from serial readChar
   void handleSerialChar(char c) {
 
-    if (c == 'B') {
-      pressShoot();
-    } else if (c == 'L') {
-      pressLeft();
-    } else if (c == 'R') {
-      pressRight();
-    } else {
-      println("SerialJoystick - unknown char '", c, "'");
+    switch (c) {
+      case'B':
+        pressShoot();
+        break;
+      case 'L':
+        pressLeft();
+        break;
+      case 'R':
+        pressRight();
+        break;
+      default:
+        println("SerialJoystick - unknown char '", c, "'");
+        break;
     }
+    
   }
   
   void pressLeft() { 
