@@ -19,7 +19,7 @@ class Player {
       }
       if(movingRight1 == true && xpos<= SCREENX-PLAYER_WIDTH/2-SCREEN_BORDER){
         if(currentPowerUp == 1){
-          xpos+= 6;
+          xpos+=6;
         }
         else{
           xpos+=3;

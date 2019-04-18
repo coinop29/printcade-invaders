@@ -43,7 +43,7 @@ class SerialJoystick {
   // Should be called each draw loop
   // Processes serial to simulated keyboard
   void draw() {
-    this.releaseHeldKeys();
+   this.releaseHeldKeys();
     
     if (serialPort.available() > 0) {
       char inByte = serialPort.readChar();
@@ -54,42 +54,48 @@ class SerialJoystick {
   // Call this with the char from serial readChar
   void handleSerialChar(char c) {
 
-    switch (c) {
-      case'B':
-        this.holdKey(KeyEvent.VK_SPACE);
-        break;
-      case 'b':
-        this.releaseKey(KeyEvent.VK_SPACE);
-        break;
-      case 'L':
+    if (c == 'B') {
+      pressShoot();
+      
+    } else if (c == 'l') {
+      pressLeft();
         this.holdKey(KeyEvent.VK_LEFT);
-        break;
-      case 'l':
-        this.releaseKey(KeyEvent.VK_LEFT);
-        break;
-      case 'R':
-        this.holdKey(KeyEvent.VK_RIGHT);
-        break;
-      case 'r':
-        this.releaseKey(KeyEvent.VK_RIGHT);
-        break;
-      default:
-        println("SerialJoystick - unknown char '", c, "'");
-        break;
+    } else if (c == 'r') {
+      pressRight();
+      this.holdKey(KeyEvent.VK_RIGHT);
+    } else {
+      println("SerialJoystick - unknown char '", c, "'");
     }
-    
-    println(c);
-    
+  }
+  
+  void pressLeft() { 
+    println("L");
+    this.holdKey(KeyEvent.VK_LEFT);
+   }
+  
+  void pressRight() {
+    println("R");
+    this.holdKey(KeyEvent.VK_RIGHT);
+  }
+  
+  void pressShoot() {
+    println("B");
+    invaderDeath = minim.loadFile("shoot.wav");
+    this.holdKey(KeyEvent.VK_SPACE);
   }
   
   void holdKey(int aKey)
   {
     robot.keyPress(aKey);
+    heldKeys.add(new Integer(aKey));
   }
   
-  void releaseKey(int aKey)
+  void releaseHeldKeys()
   {
-    robot.keyRelease(aKey);
+    while (heldKeys.size() > 0) {
+      Integer aKey = heldKeys.remove();
+      robot.keyRelease(aKey.intValue());
+    }
   }
   
   void test() {
@@ -102,20 +108,14 @@ class SerialJoystick {
     // Demo
     println("Sending B");
     handleSerialChar('B');
-    delay(50);
-    handleSerialChar('b');
     println("");
     
     println("Sending L");
     handleSerialChar('L');
-    delay(50);
-    handleSerialChar('l');
     println("");
     
     println("Sending R");
     handleSerialChar('R');
-    delay(50);
-    handleSerialChar('r');
     println("");
    
   }

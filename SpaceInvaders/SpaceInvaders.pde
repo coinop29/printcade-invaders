@@ -214,7 +214,7 @@ void setup(){
   // Initialise different sounds used in the game imported from the folder the game is in
   //player = minim.loadFile("Moar Ghosts and Stuff .mov");
   //soundtrack = minim.loadFile("Moar Ghosts and Stuff .mov");
-  invaderDeath = minim.loadFile("Invader Death.mov");
+  invaderDeath = minim.loadFile("invaderkilled.wav");
   //soundtrack.loop();
   
   // Initialise different fonts
@@ -235,7 +235,7 @@ void setup(){
   String[] ports = Serial.list();
   printArray(ports);
   
-  int serialPortIndex = -1;  // Set this to the port you want, or -1 for autodetect
+  int serialPortIndex = 7;  // Set this to the port you want, or -1 for autodetect
   
   if (serialPortIndex == -1) {
     // Autodetect
