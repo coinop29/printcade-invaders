@@ -1,6 +1,6 @@
 class Invader3 {
   float xpos; float ypos;
-  color invaderColor = color(255);
+  color invaderColor = color(245,250,5);
   float speed; float lastPosition;
   PImage invaderImage;
   PImage explosionImage;
@@ -71,7 +71,7 @@ class Invader3 {
     if(killed==false){
       if(timeOfExplosion < 0){
         noStroke();
-        fill(255);
+       fill(invaderColor);
         if(frameCount%10<=5){
           rect(xpos-.15*INVADER3_WIDTH,ypos-.45*INVADER3_HEIGHT,.3*INVADER3_WIDTH,.15*INVADER3_HEIGHT);
           rect(xpos-.10*INVADER3_WIDTH,ypos-.50*INVADER3_HEIGHT,.05*INVADER3_WIDTH,.05*INVADER3_HEIGHT);

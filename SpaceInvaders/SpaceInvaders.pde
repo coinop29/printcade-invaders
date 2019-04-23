@@ -239,7 +239,7 @@ void setup(){
   String[] ports = Serial.list();
   printArray(ports);
   
-  int serialPortIndex = -1;  // Set this to the port you want, or -1 for autodetect
+  int serialPortIndex = 7;  // Set this to the port you want, or -1 for autodetect
   
   if (serialPortIndex == -1) {
     // Autodetect

@@ -1,6 +1,6 @@
 class Invader1 {
   float xpos; float ypos;
-  color invaderColor = color(255,255,255);
+  color invaderColor = color(0,232,40);
   float speed; float lastPosition;
   PImage invaderImage;
   PImage explosionImage;

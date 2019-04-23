@@ -7,11 +7,11 @@ void drawLayout(){
   textFont(gameFont,25);
   textAlign(CENTER);
   fill(0);
-  text("Printcade",SCREENX/2,23);
+  text("Printcade Invaders",SCREENX/2,23);
   textAlign(LEFT);
   text("Score: ",SCREEN_BORDER+2,23);
   text(score,60,23);
-  stroke(255);
+ // stroke(255);
   line(0,0,0,SCREENY);
   line(1,0,1,SCREENY);
   line(SCREENX-1,0,SCREENX-1,SCREENY);
