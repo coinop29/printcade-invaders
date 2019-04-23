@@ -57,10 +57,10 @@ class SerialJoystick {
     if (c == 'B') {
       pressShoot();
       
-    } else if (c == 'l') {
+    } else if (c == 'L') {
       pressLeft();
         this.holdKey(KeyEvent.VK_LEFT);
-    } else if (c == 'r') {
+    } else if (c == 'R') {
       pressRight();
       this.holdKey(KeyEvent.VK_RIGHT);
     } else {
