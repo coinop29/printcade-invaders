@@ -23,7 +23,7 @@ static int SCREENX               = -1; // Dummy value, manually set it in setup(
 static int SCREENY               = -1;
 final static int SCREEN_BORDER         = 3;
 final static int EXPLOSION_TIME        = 8;
-final static int AMOUNT_OF_INVADERS    = 10;
+final static int AMOUNT_OF_INVADERS    = 24;
 final static float SPACE_WHILE_DANCING = 2.4;
 final static float AMOUNT_BETWEEN_INVADERS = 1.5;
 final static float BULLET_DELAY        = 4;
@@ -48,6 +48,7 @@ boolean selection2;
 boolean selection3;
 boolean initialsEntered;
 boolean onHowToPlayScreen;
+boolean firstShot;
 float   stash;
 float   currentPowerUp;
 float   bulletCooldown;
@@ -89,6 +90,7 @@ Minim           minim;
 AudioPlayer     soundtrack;
 AudioPlayer     player;
 AudioPlayer     invaderDeath;
+AudioPlayer     playerShoot;
 Projectile      playerProjectile[];
 Projectile      invaderProjectile[];
 MainMenu        mainMenu;
@@ -107,11 +109,11 @@ SerialJoystick serialJoystick;
 
 void setup(){
   
-  SCREENX = 500;
-  SCREENY = 600;
+  SCREENX = 1200;
+  SCREENY = 675;
   // Apparently the arguments to size() can't be variables (wha??) so
   // make sure these values match those set above
-  size(500, 600);
+  size(1200, 675);
   
   ellipseMode(RADIUS);
   frameRate(FRAMES_PER_SECOND);
@@ -132,6 +134,7 @@ void setup(){
   keyBeingPressed    = false;
   paused             = false;
   onHowToPlayScreen  = false;
+  firstShot          = true;
   currentSelection   = 100000001;
   score              = 0;
   spacesMovedDown    = 0;
@@ -214,7 +217,8 @@ void setup(){
   // Initialise different sounds used in the game imported from the folder the game is in
   //player = minim.loadFile("Moar Ghosts and Stuff .mov");
   //soundtrack = minim.loadFile("Moar Ghosts and Stuff .mov");
-  invaderDeath = minim.loadFile("Invader Death.mov");
+  invaderDeath = minim.loadFile("explosion.wav");
+  playerShoot = minim.loadFile("shoot.wav");
   //soundtrack.loop();
   
   // Initialise different fonts
@@ -283,9 +287,12 @@ void draw(){
   else if(gameSetup==true){
     if(bottomHit==true){
       if(playerLives.livesRemaining>0){
-        levelTransition.goBackUp(invaders1Array,invaders2Array,invaders3Array, playerLives, playerProjectile, invaderProjectile);}
+        levelTransition.goBackUp(invaders1Array,invaders2Array,invaders3Array, playerLives, playerProjectile, invaderProjectile);
+      }
       else{
-        levelTransition.gameOver(invaders1Array,invaders2Array,invaders3Array,playerLives);}}
+        levelTransition.gameOver(invaders1Array,invaders2Array,invaders3Array,playerLives);
+      }
+   }
     else{
       levelTransition.change(invaders1Array,invaders2Array,invaders3Array, playerProjectile, invaderProjectile, invader3, shieldPiece1ArrayInitialiser, shieldPiece1Array);}
     thePlayer.draw();
@@ -355,6 +362,11 @@ void draw(){
             thePlayer.explode(invaderProjectile[k]);}}
       //if the player has shot
       if(shot == true){
+        if (firstShot == true){
+          firstShot = false;
+          playerShoot.play();
+          playerShoot.rewind();
+        }
         //if the player has the 3rd power up, shoot three projectiles
         if(currentPowerUp==3){
           playerProjectile[currentPlayerProjectileIndex] = new Projectile(thePlayer.xpos-4*PROJECTILE_WIDTH,thePlayer.ypos);
@@ -365,6 +377,7 @@ void draw(){
         else{
           playerProjectile[currentPlayerProjectileIndex] = new Projectile(thePlayer.xpos,thePlayer.ypos);
           shot = false;
+          firstShot = true;
           currentPlayerProjectileIndex++;}
         //if the player has shot more bullets than allowed, overwrite the first projectile used (wrap around the list of projectile)  
         if(currentPlayerProjectileIndex>=playerProjectile.length-3){currentPlayerProjectileIndex=0;}}

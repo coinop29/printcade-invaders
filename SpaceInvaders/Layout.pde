@@ -7,7 +7,7 @@ void drawLayout(){
   textFont(gameFont,25);
   textAlign(CENTER);
   fill(0);
-  text("Space Invaders Baby",SCREENX/2,23);
+  text("Printcade",SCREENX/2,23);
   textAlign(LEFT);
   text("Score: ",SCREEN_BORDER+2,23);
   text(score,60,23);

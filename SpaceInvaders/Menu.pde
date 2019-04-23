@@ -15,21 +15,21 @@ class MainMenu{
     stroke(255);
     text("Welcome",SCREENX/2,SCREENY/4);
     textFont(gameFont,40);
-    text("to Space Invaders",SCREENX/2,SCREENY/3);
-    text("1 Player",SCREENX/2,SCREENY/2);
-    text("How To Play",SCREENX/2,2*SCREENY/3);
-    text("High Scores",SCREENX/2,SCREENY-SCREENY/6);
+    text("to Printcade",SCREENX/2,SCREENY/3);
+    text("Press Fire to Start",SCREENX/2,SCREENY/2);
+    //text("How To Play",SCREENX/2,2*SCREENY/3);
+    //text("High Scores",SCREENX/2,SCREENY-SCREENY/6);
     fill(255,0,0);
     noStroke();
-    if(selection1 == true && frameCount%20<10){
-      text("1 Player",SCREENX/2,SCREENY/2);
-    }
-    else if(selection2 == true && frameCount%20<10){
-      text("How To Play",SCREENX/2,2*SCREENY/3);
-    }
-    else if(selection3 == true && frameCount%20<10){
-      text("High Scores",SCREENX/2,SCREENY-SCREENY/6);
-    }
+    //if(selection1 == true && frameCount%20<10){
+    //  text("1 Player",SCREENX/2,SCREENY/2);
+    //}
+    //else if(selection2 == true && frameCount%20<10){
+    //  text("How To Play",SCREENX/2,2*SCREENY/3);
+    //}
+    //else if(selection3 == true && frameCount%20<10){
+    //  text("High Scores",SCREENX/2,SCREENY-SCREENY/6);
+    //}
     stroke(255);
     line(0,0,0,SCREENY);
     line(1,0,1,SCREENY);
