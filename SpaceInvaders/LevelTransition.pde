@@ -198,11 +198,12 @@ class LevelTransition {
     if (frameCount%20<10){
       text("GAME OVER", SCREENX/2, SCREENY/2);
     }
-    //Once game over has been on for the transitionDuration, transition to High score menu
+    //Once game over has been on for the transitionDuration, transition to Main menu
     if (frameCount-transitionDuration==activationTime && frameCount>transitionDuration){
       bottomHit = false;
       gameSetup=false;
-      onHighScoresMenu = true;
+      onHighScoresMenu = false;
+      onMenuScreen = true;
       level = 1;
       currentPowerUp = 0;
       stash = 0;
