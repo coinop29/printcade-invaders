@@ -54,23 +54,24 @@ void drawLayout(){
 
 //Deal with any key being pressed at any stage of the game
 void keyPressed(){
+ 
   
-  //MENU SCREEN
+  //MENU SCREEN  }
   if(onMenuScreen==true){
     if(keyPressed){
         if(keyCode==UP){currentSelection+=1;}
         else if(keyCode==DOWN){currentSelection-=1;
-      }
-        else if(selection1 == true && key=='\n'){
+      }    
+        else if(selection1 == true && ((key=='\n') || (key == 'B'))){
           score =0 ;
           onMenuScreen = false;
           gameSetup = true;
         }
-        else if(selection2 == true && key=='\n'){
+        else if(selection2 == true && key=='\n' || key == 'B'){
           onMenuScreen = false;
           onHowToPlayScreen = true;
         }
-        else if(selection3 == true && key=='\n'){
+        else if(selection3 == true && key=='\n' || key == 'B'){
           onMenuScreen = false;
           onHighScoresMenu = true;
         }

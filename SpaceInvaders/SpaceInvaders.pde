@@ -260,7 +260,7 @@ void setup(){
   }
   
   println("Opening serial port ", ports[serialPortIndex]);
-  serialPort = new Serial(this, Serial.list()[serialPortIndex], 9600);
+  serialPort = new Serial(this, Serial.list()[13], 9600);
   serialJoystick = new SerialJoystick();
   serialJoystick.init(serialPort);
 }
