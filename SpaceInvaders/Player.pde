@@ -10,7 +10,7 @@ class Player {
   Player(){
     xpos = SCREENX/2;
     ypos = SCREENY - MARGIN;
-    explosionImage = loadImage("exploding.GIF");
+    explosionImage = loadImage("playerdeath.GIF");
   }
   
   //Move the player
