@@ -1,5 +1,5 @@
 class MainMenu{
-  
+  PFont f;
   
   MainMenu(){
   }
@@ -15,13 +15,19 @@ class MainMenu{
     stroke(255);
     fill(#03FA00);
     text("Welcome",SCREENX/2,SCREENY/4);
-    textFont(gameFont,40);
-    text("to Printcade",SCREENX/2,SCREENY/3);
+    textFont(gameFont,50);
+    text("to Printcade: Invaders",SCREENX/2,SCREENY/3);
+    fill(255,255,255);
+     f = createFont("Dialog-48", 24);
+  textFont(f);
+      text("A Project by Jonah Brucker-Cohen (@coinop29) and Michael Ang (@mangtronix)",600,600);
     fill(255,0,0);
-    text("Press Fire to Start",SCREENX/2,SCREENY/2);
+    textFont(gameFont,50);
+    text("Press Fire to Start",600, 400);
     fill(#FF0000);
      fill(#FEFF03);
-    text("www.printcade.org",600,500);
+     textFont(gameFont,40);
+    text("www.printcade.org",600,650);
     //text("How To Play",SCREENX,2*SCREENY);
     //text("High Scores",SCREENX/2,SCREENY-SCREENY/6);
     

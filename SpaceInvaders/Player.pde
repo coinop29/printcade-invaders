@@ -3,14 +3,15 @@ class Player {
   color playerColor = color(255);
   boolean killed = false;
   int deathAnimationCounter = -1;
-  int deathAnimationFrames = 50;
-  
+  int deathAnimationFrames = 10;
+  import ddf.minim.*;
+  AudioPlayer invaderDeath;
   PImage explosionImage;
   
   Player(){
     xpos = SCREENX/2;
     ypos = SCREENY - MARGIN;
-    explosionImage = loadImage("playerdeath.GIF");
+    explosionImage = loadImage("playerdeath2.GIF");
   }
   
   //Move the player
@@ -49,9 +50,11 @@ class Player {
       
       // Draw the dead player
       image(explosionImage, xpos-explosionImage.width/2, ypos-explosionImage.height/2);
-      
+      invaderDeath = minim.loadFile("explosion.wav");
+
       // Decrement the animation counter
       deathAnimationCounter--;
+      
       
       // Check if the death animation should end
       if (deathAnimationCounter <= 0) {

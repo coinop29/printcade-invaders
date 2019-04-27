@@ -74,6 +74,7 @@ int[][] shieldPiece2ArrayInitialiser;
 int[][] shieldPiece3ArrayInitialiser;
 int[][] shieldPiece4ArrayInitialiser;
 PFont   gameFont;
+PFont gameFont2;
 PFont   scoreFont;
 String[] highScoresStrings;
 String[] scoreHolders;
@@ -222,7 +223,8 @@ void setup(){
   //soundtrack.loop();
   
   // Initialise different fonts
-  gameFont           = loadFont("DINCondensed-Bold-48.vlw");
+  gameFont             =  loadFont("Pacmania-48.vlw");
+  gameFont2           = loadFont("DINCondensed-Bold-48.vlw");
   scoreFont          = loadFont("HiraKakuStdN-W8-48.vlw");
   
   //Bring in the current high-scores and their corresponding high-score-holders

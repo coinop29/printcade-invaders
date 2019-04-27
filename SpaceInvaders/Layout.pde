@@ -2,13 +2,15 @@
 //Method for drawing different parts of the screen
 void drawLayout(){
   //Draw top bar
-  fill(255);
+  fill(0);
   rect(0,0,SCREENX,30);
   textFont(gameFont,25);
   textAlign(CENTER);
-  fill(0);
+ 
+ fill(#FEFF00);
   text("Printcade Invaders",SCREENX/2,23);
   textAlign(LEFT);
+  textFont(gameFont2,25);
   text("Score: ",SCREEN_BORDER+2,23);
   text(score,60,23);
  // stroke(255);
@@ -62,7 +64,7 @@ void keyPressed(){
         if(keyCode==UP){currentSelection+=1;}
         else if(keyCode==DOWN){currentSelection-=1;
       }    
-        else if(selection1 == true && ((key=='\n') || (key == 'B'))){
+        else if(selection1 == true && ((key=='\n') || (key == ' '))){
           score =0 ;
           onMenuScreen = false;
           gameSetup = true;
