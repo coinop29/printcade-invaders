@@ -1,7 +1,7 @@
 
-# PrintCade: Invaders
+# PrintCade: Invaders (2014-2019)
 http://www.printcade.org
-A 1980s Arcade Game Built with Recycled Electronics
+A 1980s Arcade Game Built with Recycled Electronics connected to a working version of Space Invaders.
 by Jonah Brucker-Cohen and Michael Ang
 
 With help from Justin Blinder
