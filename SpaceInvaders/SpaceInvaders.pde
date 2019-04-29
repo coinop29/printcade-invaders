@@ -89,6 +89,7 @@ Invader2        invaders2Array[];
 Invader3        invaders3Array[];
 Minim           minim;
 AudioPlayer     soundtrack;
+AudioPlayer     playerdeath;
 AudioPlayer     player;
 AudioPlayer     invaderDeath;
 AudioPlayer     playerShoot;
@@ -218,8 +219,9 @@ void setup(){
   // Initialise different sounds used in the game imported from the folder the game is in
   //player = minim.loadFile("Moar Ghosts and Stuff .mov");
   //soundtrack = minim.loadFile("Moar Ghosts and Stuff .mov");
-  invaderDeath = minim.loadFile("explosion.wav");
+  invaderDeath = minim.loadFile("invaderkill.wav");
   playerShoot = minim.loadFile("shoot.wav");
+    playerdeath = minim.loadFile("explosion.wav");
   //soundtrack.loop();
   
   // Initialise different fonts

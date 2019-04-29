@@ -1,5 +1,5 @@
 # Space Invaders
-A one player Space Invaders game written in Processing.
+A one player Space Invaders game written in Processing but modified to work with PrintCade.
 
 ![space-invaders-demo](Screenshots/space-invaders-demo.gif)
 
