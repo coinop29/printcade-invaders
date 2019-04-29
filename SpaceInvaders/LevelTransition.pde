@@ -26,8 +26,10 @@ class LevelTransition {
       println("\n \n Level " + level);
     }
     //Draw the new level
-    background(0);
+   // background(0);
+ 
     drawLayout();
+      
     for (int i=0; i<shieldPiece1ArrayInitialiser[1].length; i++) {
       for (int j=0; j<shieldPiece1ArrayInitialiser.length; j++) {
         if (shieldPiece1ArrayInitialiser[j][i]==1) {
@@ -92,7 +94,8 @@ class LevelTransition {
       activationTime=frameCount;
     } 
     else{
-      background(0);
+     background(0);
+   
       drawLayout();
       for(int i=0; i<shieldPiece1ArrayInitialiser[1].length; i++){
         for(int j=0; j<shieldPiece1ArrayInitialiser.length; j++){

@@ -1,3 +1,6 @@
+PImage bg;
+PImage starsbackground;
+
 class MainMenu{
   PFont f;
   
@@ -6,7 +9,9 @@ class MainMenu{
   
   //Draw the main menu
   void display(){
-    background(0);
+    bg = loadImage("Background_StartupScreen.jpg");
+    background(bg);
+   //background(0);
     fill(255);
     rect(0,0,SCREENX,30);
     textFont(gameFont,70);
@@ -70,6 +75,8 @@ class MainMenu{
    background(0);
    
    //General drawing
+    background(starsbackground);
+    starsbackground = loadImage("spacebackground.gif");
    fill(255);
    stroke(255);
    line(0,0,0,SCREENY);

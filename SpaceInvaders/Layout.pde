@@ -1,12 +1,13 @@
 
 //Method for drawing different parts of the screen
 void drawLayout(){
+  
+    
   //Draw top bar
   fill(0);
   rect(0,0,SCREENX,30);
   textFont(gameFont,25);
   textAlign(CENTER);
- 
  fill(#FEFF00);
   text("Printcade Invaders",SCREENX/2,23);
   textAlign(LEFT);
@@ -110,6 +111,7 @@ void keyPressed(){
       if (keyCode == LEFT) {
         onHowToPlayScreen = false;
         onMenuScreen = true;
+         
       }
     }
   }
@@ -122,9 +124,11 @@ void keyPressed(){
       }
     }
   }
-        
+         
    //IN A GAME
    else{
+     
+   
      if(keyPressed){
        if(keyCode==LEFT){
          movingLeft1 = true;

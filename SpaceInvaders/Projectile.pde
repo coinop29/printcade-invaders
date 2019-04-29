@@ -1,4 +1,4 @@
-class Projectile {
+                                                                                                     class Projectile {
   float xpos; float ypos;
   color projectileColor = color(255,0,0);
   int dy;

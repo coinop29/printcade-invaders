@@ -28,7 +28,6 @@ final static float SPACE_WHILE_DANCING = 2.4;
 final static float AMOUNT_BETWEEN_INVADERS = 1.5;
 final static float BULLET_DELAY        = 4;
 final static float SPEED               = 2;        // <-- Change this number to instantly alter the difficulty
-
 Boolean movingDownwards;
 Boolean movedOut;
 boolean projectileOnScreen;
@@ -80,6 +79,8 @@ String[] highScoresStrings;
 String[] scoreHolders;
 String   typing;
 String   saved;
+PImage pgstars;
+
 
 Player          thePlayer;
 Lives           playerLives;
@@ -116,11 +117,9 @@ void setup(){
   // Apparently the arguments to size() can't be variables (wha??) so
   // make sure these values match those set above
   size(1200, 675);
-  
   ellipseMode(RADIUS);
   frameRate(FRAMES_PER_SECOND);
-  background(0);
-  
+background(0);
   movingDownwards    = false;
   onMenuScreen       = true;
   gameSetup          = false;
@@ -272,7 +271,7 @@ void setup(){
 void draw(){
   // Process serial joystick
   serialJoystick.draw();
-  
+
   // MENU SCREEN
   
   if(onMenuScreen == true){
