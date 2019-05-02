@@ -94,7 +94,8 @@ class LevelTransition {
       activationTime=frameCount;
     } 
     else{
-     background(0);
+    spacebackground = loadImage("spacebackground.jpg");
+     background(spacebackground);
    
       drawLayout();
       for(int i=0; i<shieldPiece1ArrayInitialiser[1].length; i++){

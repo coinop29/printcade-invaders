@@ -1,7 +1,6 @@
 
 //Method for drawing different parts of the screen
 void drawLayout(){
-  
     
   //Draw top bar
   fill(0);
@@ -9,11 +8,12 @@ void drawLayout(){
   textFont(gameFont,25);
   textAlign(CENTER);
  fill(#FEFF00);
-  text("Printcade Invaders",SCREENX/2,23);
+  text("Printcade : Invaders",SCREENX/2,23);
   textAlign(LEFT);
-  textFont(gameFont2,25);
-  text("Score: ",SCREEN_BORDER+2,23);
-  text(score,60,23);
+ textFont(gameFont2,20);
+  text("Score: ",SCREEN_BORDER+2,20);
+  textFont(gameFont2,20);
+  text(score,60,30);
  // stroke(255);
   line(0,0,0,SCREENY);
   line(1,0,1,SCREENY);

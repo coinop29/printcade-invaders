@@ -1,8 +1,9 @@
 PImage bg;
-PImage starsbackground;
-
+PImage spacebackground;
+ import ddf.minim.*;
 class MainMenu{
   PFont f;
+
   
   MainMenu(){
   }
@@ -72,11 +73,12 @@ class MainMenu{
  
  //Display each element on the how-to page
  void displayHowTo(){
-   background(0);
-   
+  //background(0);
+ 
    //General drawing
-    background(starsbackground);
-    starsbackground = loadImage("spacebackground.gif");
+   spacebackground = loadImage("spacebackground.jpg");
+    background(spacebackground);
+   
    fill(255);
    stroke(255);
    line(0,0,0,SCREENY);

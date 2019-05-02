@@ -94,6 +94,7 @@ AudioPlayer     playerdeath;
 AudioPlayer     player;
 AudioPlayer     invaderDeath;
 AudioPlayer     playerShoot;
+AudioPlayer BackgroundMusic;
 Projectile      playerProjectile[];
 Projectile      invaderProjectile[];
 MainMenu        mainMenu;
@@ -109,6 +110,8 @@ ShieldPiece     shieldPiece4Array[][];
 // Reads from serial port and converts to key presses
 Serial serialPort;
 SerialJoystick serialJoystick;
+import processing.video.*;
+Movie movie;
 
 void setup(){
   
@@ -221,6 +224,7 @@ background(0);
   invaderDeath = minim.loadFile("invaderkill.wav");
   playerShoot = minim.loadFile("shoot.wav");
     playerdeath = minim.loadFile("explosion.wav");
+
   //soundtrack.loop();
   
   // Initialise different fonts
@@ -347,6 +351,8 @@ void draw(){
   
   else{
       background(0);
+     spacebackground = loadImage("spacebackground.jpg");
+     background(spacebackground);
       //If powerup-invader has been shot, emit power-up and kill invader
       if(invaders3Array[randomInvaderForPowerUp].exploded==true && frameCount - invaders3Array[randomInvaderForPowerUp].timeOfExplosion == 7){
         powerUp = new PowerUp(invaders3Array[randomInvaderForPowerUp]);}
