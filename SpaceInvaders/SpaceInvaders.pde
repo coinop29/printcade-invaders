@@ -1,5 +1,9 @@
 import ddf.minim.*;
 import processing.serial.*;
+import gifAnimation.*;
+
+//PImage[] allFrames = Gif.getPImages(this, "spacebackground.gif");
+Gif starAnimation; 
 
 //Define all constants used throughout the program
 
@@ -110,8 +114,8 @@ ShieldPiece     shieldPiece4Array[][];
 // Reads from serial port and converts to key presses
 Serial serialPort;
 SerialJoystick serialJoystick;
-import processing.video.*;
-Movie movie;
+//import processing.video.*;
+//Movie movie;
 
 void setup(){
   
@@ -270,6 +274,9 @@ background(0);
   serialPort = new Serial(this, Serial.list()[13], 9600);
   serialJoystick = new SerialJoystick();
   serialJoystick.init(serialPort);
+  
+  starAnimation = new Gif(this, "spacebackground.gif");
+  starAnimation.play();
 }
 
 void draw(){
@@ -277,7 +284,8 @@ void draw(){
   serialJoystick.draw();
 
   // MENU SCREEN
-  
+ 
+
   if(onMenuScreen == true){
     mainMenu.display();
     for(int i=0; i<invaders1Array.length; i++){
@@ -350,9 +358,12 @@ void draw(){
   // PLAYING IN GAME MODE
   
   else{
-      background(0);
-     spacebackground = loadImage("spacebackground.jpg");
-     background(spacebackground);
+     image(starAnimation, 0, 0);
+     background(0);
+      
+     //spacebackground = loadImage("spacebackground.jpg");
+     //background(spacebackground);
+    
       //If powerup-invader has been shot, emit power-up and kill invader
       if(invaders3Array[randomInvaderForPowerUp].exploded==true && frameCount - invaders3Array[randomInvaderForPowerUp].timeOfExplosion == 7){
         powerUp = new PowerUp(invaders3Array[randomInvaderForPowerUp]);}
@@ -492,4 +503,5 @@ void draw(){
         bulletCooldown-=fireRate;}
       if(bulletCooldown<0){bulletCooldown=0;}
   }
+
 }
